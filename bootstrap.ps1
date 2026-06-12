@@ -124,7 +124,11 @@ if (Test-Path "$goRoot\bin\go.exe") {
     }
 }
 
-# 4b. 将 GitHub CLI 加入 PATH
+# 4b. pnpm store 配置
+pnpm config set store-dir D:\pnpm\store 2>$null
+Write-Host "  ✅ pnpm store-dir 已设为 D:\pnpm\store" -ForegroundColor Green
+
+# 4c. 将 GitHub CLI 加入 PATH
 $ghPath = "C:\Program Files\GitHub CLI"
 if (Test-Path "$ghPath\gh.exe") {
     $userPath = [Environment]::GetEnvironmentVariable("PATH", "User")
